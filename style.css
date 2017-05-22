@@ -1,0 +1,25 @@
+* {
+  background-color: #fff
+  font-family: Georgia;
+  margin: 0 auto;
+}
+
+body {
+  width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 75px;
+}
+
+nav li {
+  display: inline-block;
+  margin: 10px;
+}
+
+footer {
+  margin: 0 auto;
+}

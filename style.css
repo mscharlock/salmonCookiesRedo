@@ -1,6 +1,5 @@
 * {
   background-color: #fff
-  font-family: Georgia;
   margin: 0 auto;
 }
 
@@ -8,18 +7,42 @@ body {
   width: 960px;
   margin: 0 auto;
   text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #fff2cf;
 }
 
 h1 {
   font-family: 'Amatic SC', cursive;
-  font-size: 75px;
+  font-size: 125px;
+  color: darkgreen;
 }
 
-nav li {
+h2 {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 30px;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+h2 ~ p {
+  margin-bottom: 20px;
+  line-height:1.5;
+}
+
+body > p {
+  line-height: 2;
+}
+
+li {
   display: inline-block;
   margin: 10px;
+  color: darkgreen;
 }
 
 footer {
   margin: 0 auto;
+  text-transform: capitalize;
+  line-height: normal;
 }

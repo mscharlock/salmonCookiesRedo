@@ -18,8 +18,24 @@ h1 {
 }
 
 .cookieTableTitle {
-  font-size: 75px;
+  font-size: 35px;
+  margin-top: 55px;
   margin-bottom: 20px;
+}
+
+fieldset {
+  margin-top: 15px;
+  line-height: 1.4;
+}
+
+button {
+  height: 30px;
+  margin-top: 20px;
+  width: 150px;
+  border-radius: 3px;
+  border: none;
+  background-color: darkgreen;
+  color: white
 }
 
 h2 {

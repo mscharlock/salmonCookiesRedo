@@ -17,7 +17,6 @@ var pike= {
       this.cookiesArray.push(cookiesNow);
     }
   },
-  //this one works!! update the rest of them//
   domForCookies: function () {
     this.cookiesAtTime();
     var ul = document.createElement('ul');

@@ -16,17 +16,48 @@
       <li><a href='#'>Merchandise</a></li>
     </ol>
   </nav>
+  <h1>Add a store</h1>
+  <!--Adding form-->
+  <form id="store_form">
+    <section class="form">
+      <!--Adding form-->
+      <!--Creating the stuff in the form-->
+      <!--Where is the store-->
+      <fieldset>
+        <label for="store_loc">Store Location:</label>
+        <input type="text" name="store_loc" placeholder="enter where your store is" required>
+      </fieldset>
 
-  <h1 class='cookieTableTitle'>Projected Cookie Sales at Each Store</h1>
+      <fieldset>
+        <label for="max_ppl_day">Maximum number of customers per day:</label>
+        <input type="number" name="max_ppl_day" placeholder="please use a number" required>
+      </fieldset>
+
+      <fieldset>
+        <label for="min_ppl_day"> Minimum number of customers per day:</label>
+        <input type="number" name="min_ppl_day" placeholder="please use a number" required>
+      </fieldset>
+
+      <fieldset>
+        <label for="cookies_sold_day">Cookies sold on average per day:</label>
+        <input type="number" name="cookies_sold_day" placeholder="please use a number" required>
+      </fieldset>
+
+    <button id="submit-store" type="submit">Add Store</button>
+  </form>
+
+  <h2 class='cookieTableTitle'>Projected Cookie Sales at Each Store</h2>
+  <!--makin' a table for our app.js data-->
   <table>
-  <thead id="table_header">
-  </thead>
-  <tbody id="tablething">
+    <thead id="table_header">
+    </thead>
+    <tbody id="tablething">
 
-    <!--our table info goes here-->
+      <!--our table info goes here-->
 
- </tbody>
-</table>
-</body>
-<script src='salesDay2.js'></script>
+   </tbody>
+  </table>
+  </section>
+
+<script src='salesDay3.js'></script>
 </html>

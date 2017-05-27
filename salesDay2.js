@@ -45,33 +45,18 @@ Store.prototype.generateSalesTotals = function () {
   return this.totalSales; //outside the loop, return the #
 };
 
-//Creating a table
-Store.prototype.renderTable = function() {
-  //select the table element
 
-  //Grab stuff
-  var table = document.getElementById('tablething'); //grab the table
-  var headerPlaces = document.getElementById('table_header'); //grab the table headers
+//render the headers
+var headerPlaces = document.getElementById('table_header'); //grab the table headers
 
-  //Set variables
-  var timesForCookies = this.cookiesAtTime(); //timesForCookies is going to be the # people/# cookies/per hour
-  var timesData = []; //blank array we can push stuff into
-  var headersForTable = ['Store location', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Daily Total']; //array with our headers data
-  var blankArr = []; //blank array we can push the headers into
-
-  for (var q = 0; q < headersForTable.length; q++) { //cycle through the headers, push each one into the blank array
-    blankArr.push('<td>' + headersForTable[q] + '</td>');
-  }
-
-  timesData.push('<td>' + this.name + '</td>' );
-
-  for (var k = 0; k < timesForCookies.length; k++) {
-    timesData.push('<td>' + timesForCookies[k] +'</td>');
-  }
-  timesData.push('<td>' + this.generateSalesTotals() + '</td>' );
+var headersForTable = ['Store location', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Daily Total']; //array with our headers data
+var blankArr = []; //blank array we can push the headers into
 
   var header_row;//row for the headersForTable
-  var new_row; //we have to put the tds in a row
+for (var q = 0; q < headersForTable.length; q++) { //cycle through the headers, push each one into the blank array
+  blankArr.push('<td>' + headersForTable[q] + '</td>');
+}
+
 
 //Put in the headers
   header_row = document.createElement('tr');
@@ -79,7 +64,24 @@ Store.prototype.renderTable = function() {
   header_row.innerHTML = headerInfo;
   table.appendChild(header_row);
 
-//Put in the row with the times data
+//Creating a table
+Store.prototype.renderTable = function() {
+  //Grab stuff
+  var table = document.getElementById('tablething'); //grab the table
+
+  //Set variables
+  var timesForCookies = this.cookiesAtTime(); //timesForCookies is going to be the # people/# cookies/per hour
+  var timesData = []; //blank array we can push stuff into
+  var new_row; //we have to put the tds in a row
+
+  timesData.push('<td>' + this.name + '</td>' );
+  for (var k = 0; k < timesForCookies.length; k++) {
+    timesData.push('<td>' + timesForCookies[k] +'</td>');
+  }
+  timesData.push('<td>' + this.generateSalesTotals() + '</td>' );
+
+
+  //Put in the row with the times data
   new_row = document.createElement('tr'); //the new row is a row
   new_row.innerHTML = timesData.join(''); //inside the new row, put the data array stuff
   table.appendChild(new_row); //put all that in the table in the DOM

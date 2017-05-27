@@ -2,8 +2,8 @@ var form = document.getElementById('store_form');
 var table = document.getElementById('tablething');
 
 //Constructor function for our store
-function Store (name, max, min, avgCookies) {
-  this.name=name;
+function Store(name, max, min, avgCookies) {
+  this.name = name;
   this.max = max;
   this.min = min;
   this.avgCookies = avgCookies;
@@ -46,41 +46,37 @@ Store.prototype.generateSalesTotals = function () {
   return this.totalSales; //outside the loop, return the #
 };
 
+//Table headers
+var headerPlaces = document.getElementById('table_header'); //grab the table headers
+var headersForTable = ['Store location', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Daily Total']; //array with our headers data
+var blankArr = []; //blank array we can push the headers into
+for (var q = 0; q < headersForTable.length; q++) { //cycle through the headers, push each one into the blank array
+  blankArr.push('<th>' + headersForTable[q] + '</th>');
+}
+var header_row;//row for the headersForTable
+
+//Put in the headers
+header_row = document.createElement('tr');
+var headerInfo = blankArr.join('');
+header_row.innerHTML = headerInfo;
+table.appendChild(header_row);
+
 //Creating a table
 Store.prototype.renderTable = function() {
-  //select the table element
-
   //Grab stuff
   var table = document.getElementById('tablething'); //grab the table
-  var headerPlaces = document.getElementById('table_header'); //grab the table headers
-
   //Set variables
   var timesForCookies = this.cookiesAtTime(); //timesForCookies is going to be the # people/# cookies/per hour
   var timesData = []; //blank array we can push stuff into
-  var headersForTable = ['Store location', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Daily Total']; //array with our headers data
-  var blankArr = []; //blank array we can push the headers into
-
-  for (var q = 0; q < headersForTable.length; q++) { //cycle through the headers, push each one into the blank array
-    blankArr.push('<td>' + headersForTable[q] + '</td>');
-  }
 
   timesData.push('<td>' + this.name + '</td>' );
-
   for (var k = 0; k < timesForCookies.length; k++) {
     timesData.push('<td>' + timesForCookies[k] +'</td>');
   }
   timesData.push('<td>' + this.generateSalesTotals() + '</td>' );
 
-  var header_row;//row for the headersForTable
   var new_row; //we have to put the tds in a row
-
-//Put in the headers
-  header_row = document.createElement('tr');
-  var headerInfo = blankArr.join('');
-  header_row.innerHTML = headerInfo;
-  table.appendChild(header_row);
-
-//Put in the row with the times data
+  //Put in the row with the times data
   new_row = document.createElement('tr'); //the new row is a row
   new_row.innerHTML = timesData.join(''); //inside the new row, put the data array stuff
   table.appendChild(new_row); //put all that in the table in the DOM
@@ -99,27 +95,15 @@ function formData(event) {
   event.preventDefault();
  //Write some variables which can represent the values in the form fields
   var store_loc = event.target.store_loc.value;
-  var max_ppl_day= parseInt(event.target.max_ppl_day.value);
-  var min_ppl_day= parseInt(event.target.min_ppl_day.value);
-  var cookies_sold_day= parseInt(event.target.cookies_sold_day.value);
+  var max_ppl_day = parseInt(event.target.max_ppl_day.value);
+  var min_ppl_day = parseInt(event.target.min_ppl_day.value);
+  var cookies_sold_day = parseInt(event.target.cookies_sold_day.value);
 
   var formPlace = new Store(store_loc, max_ppl_day, min_ppl_day, cookies_sold_day);
   formPlace.renderTable();
   form.reset(); //each time we submit, empty the form fieldsets
   console.log(formPlace);
 }
-
-//put the stuff from the form in a table
-// function createFormTable() {
-//   var row;
-//   for (var i = 0; i < emptyArr.length; i++) {
-//     row = document.createElement('tr');
-//     row.innerHTML = '<td>' + emptyArr[i].max_ppl_day + '</td>' +
-//       '<td>' + emptyArr[i].min_ppl_day + '</td>' +
-//       '<td>' + emptyArr[i].cookies_sold_day + '</td>';
-//   }
-//   table.appendChild(row);
-// }
 
 //Adding the event listener
 form.addEventListener('submit', formData);

@@ -54,7 +54,7 @@ var blankArr = []; //blank array we can push the headers into
 
   var header_row;//row for the headersForTable
 for (var q = 0; q < headersForTable.length; q++) { //cycle through the headers, push each one into the blank array
-  blankArr.push('<td>' + headersForTable[q] + '</td>');
+  blankArr.push('<th>' + headersForTable[q] + '</th>');
 }
 
 
